@@ -1,0 +1,10 @@
+.jumbotron{
+    background-image: url(https://backgroundcheckall.com/wp-content/uploads/2017/12/minecraft-dirt-background-2-1-300x200.jpg);
+    color: white;
+    text-decoration: overline underline;
+    font-size: 40px;
+}
+
+#tools{
+    width: 12%;
+}
