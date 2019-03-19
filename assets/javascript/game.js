@@ -1,57 +1,232 @@
-var targetNumber=Math.floor(Math.random()*120+19);
-$("#number-to-guess").text(targetNumber);
-$("#your-number").text(tvalue);
-$("#wins").text(win);
-$("#losses").text(loss);
-var mineTools = [1, 1, 1, 1];
-var imageTs = ["assets/images/amora-gem-round.png", "ssets/images/pickaxe-hi.png", "assets/images/mining-car-hi.png", "assets/images/mineshafts.jpg"];
+var targetNumber = Math.floor(Math.random() * 120 + 19);
+
+
+$("#gems").on("click", gems);
+$("#pick").on("click", pick);
+$("#cart").on("click", cart);
+$("#shaft").on("click", shaft);
+
 var win = 0;
 var loss = 0;
-// for(i=0; i<mineTools.length; i++){
-//     mineTools[i] = Math.floor(Math.random()*12+1);
-// }
 
-var counter = 0;
+var tvalue = 0;
 
-for (var i = 0; i < mineTools.length; i++) {
+var gemround = 0;
+var pickround = 0;
+var cartround = 0;
+var shaftround = 0;
 
-    var imageTools = $("<img>");
+var gemValue = Math.floor(Math.random() * 12 + 1);
+var pickValue = Math.floor(Math.random() * 12 + 1);
+var cartValue = Math.floor(Math.random() * 12 + 1);
+var shaftValue = Math.floor(Math.random() * 12 + 1);
 
-    imageTools.addClass("tools");
-
-    var subimage = imageTs[i];
-
-    imageTools.attr("src", subimage);
-
-    imageTools.attr("tool-value", mineTools[i]);
-
-    $("#tools").append(imageTools);
+function gems() {
+  if (gemround === 0) {
+    gemround = 1;
+    gemValue = Math.floor(Math.random() * 12 + 1);
+    tvalue += gemValue;
+    console.log(tvalue);
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
   }
 
-  $(".tool-value").on("click", function() {
+  else if (tvalue === targetNumber) {
+    alert("You found a Fortune!");
+    targetNumber = Math.floor(Math.random() * 120 + 19);
+    win++;
+    gemround = 0;
+    pickround = 0;
+    cartround = 0;
+    shaftround = 0;
+    tvalue = 0;
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  
+  else if (tvalue >= targetNumber) {
+    alert("You dug to deep!");
+    targetNumber = Math.floor(Math.random() * 120 + 19);
+    loss++;
+    gemround = 0;
+    pickround = 0;
+    cartround = 0;
+    shaftround = 0;
+    tvalue = 0;
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  else {
+    tvalue += gemValue;
+    console.log(tvalue);
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+
+}
+
+function pick() {
+  if (pickround === 0) {
+    pickround  = 1;
+    pickValue = Math.floor(Math.random() * 12 + 1);
+    tvalue += pickValue;
+    console.log(tvalue);
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  else if (tvalue === targetNumber) {
+    alert("You found a Fortune!");
+    targetNumber = Math.floor(Math.random() * 120 + 19);
+    win++;
+    gemround = 0;
+    pickround = 0;
+    cartround = 0;
+    shaftround = 0;
+    tvalue = 0;
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  
+  else if (tvalue >= targetNumber) {
+    alert("You dug to deep!");
+    targetNumber = Math.floor(Math.random() * 120 + 19);
+    loss++;
+    gemround = 0;
+    pickround = 0;
+    cartround = 0;
+    shaftround = 0;
+    tvalue = 0;
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  else {
+    tvalue += pickValue;
+    console.log(tvalue);
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+}
+
+function cart() {
+  if (cartround === 0) {
+    cartround = 1;
+    cartValue = Math.floor(Math.random() * 12 + 1);
+    tvalue += cartValue;
+    console.log(tvalue);
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  else if (tvalue === targetNumber) {
+    alert("You found a Fortune!");
+    targetNumber = Math.floor(Math.random() * 120 + 19);
+    win++;
+    gemround = 0;
+    pickround = 0;
+    cartround = 0;
+    shaftround = 0;
+    tvalue = 0;
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  
+  else if (tvalue >= targetNumber) {
+    alert("You dug to deep!");
+    targetNumber = Math.floor(Math.random() * 120 + 19);
+    loss++;
+    gemround = 0;
+    pickround = 0;
+    cartround = 0;
+    shaftround = 0;
+    tvalue = 0;
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  else {
+    tvalue += cartValue;
+    console.log(tvalue);
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+}
+
+function shaft() {
+  if (shaftround === 0) {
+    shaftround = 1;
+    shaftValue = Math.floor(Math.random() * 12 + 1);
+    tvalue += shaftValue;
+    console.log(tvalue);
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  else if (tvalue === targetNumber) {
+    alert("You found a Fortune!");
+    targetNumber = Math.floor(Math.random() * 120 + 19);
+    win++;
+    gemround = 0;
+    pickround = 0;
+    cartround = 0;
+    shaftround = 0;
+    tvalue = 0;
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  
+  else if (tvalue >= targetNumber) {
+    alert("You dug to deep!");
+    targetNumber = Math.floor(Math.random() * 120 + 19);
+    loss++;
+    gemround = 0;
+    pickround = 0;
+    cartround = 0;
+    shaftround = 0;
+    tvalue = 0;
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+  else {
+    tvalue += shaftValue;
+    console.log(tvalue);
+    $("#number-to-guess").text(targetNumber);
+    $("#tvalue").text(tvalue);
+    $("#wins").text(win);
+    $("#losses").text(loss);
+  }
+
+}
+$("#number-to-guess").text(targetNumber);
+$("#tvalue").text(tvalue);
+$("#wins").text(win);
+$("#losses").text(loss);
 
 
-    var tvalue = ($(this).attr("tool-value"));
-    tvalue = parseInt(tvalue);
 
-    counter += tvalue;
-
-
-    if (counter === targetNumber) {
-        alert("You found a Fortune!");
-        targetNumber=Math.floor(Math.random()*120+19);
-        win++;
-    }
-
-    else if (counter >= targetNumber) {
-        alert("You dug to deep!");
-        targetNumber=Math.floor(Math.random()*120+19);
-        loss++;
-    }
-
-  });
-
-//  I had trouble getting the images to stack up right on width wise. I originally had buttons next to 
-// images but decided to switch it after thinking I coulduse an array easier by genarating the image. I failed however 
-// To get the images formated correctly during this method and I ran out of time trying to swtich it back to buttons. I know I can switch the values 
-// of the buttons using the array to assign random values.
